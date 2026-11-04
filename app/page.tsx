@@ -4,6 +4,7 @@ import { useState, type FormEvent } from "react";
 import { MotionConfig, motion } from "framer-motion";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+import { ProjectSection } from "../components/project-section";
 import Image from "next/image";
 import myPhoto from "../public/rodney-portrait.webp";
 
@@ -42,7 +43,7 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="flex flex-col w-full relative overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+        <div className="flex flex-col w-full relative overflow-clip selection:bg-primary-container selection:text-on-primary-container">
           <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-primary/10 rounded-full blur-[130px] pointer-events-none -z-10"></div>
           <div className="absolute top-[35%] right-0 w-[550px] h-[550px] bg-secondary-container/15 rounded-full blur-[150px] pointer-events-none -z-10"></div>
           <div className="absolute top-[75%] left-0 w-[500px] h-[500px] bg-tertiary/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
@@ -69,7 +70,7 @@ export default function Home() {
                 </div>
 
                 <h1 className="font-display text-display text-on-surface tracking-tight leading-tight">
-                  Let’s not just build websites. Let’s build{" "}
+                  Let’s build{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary">
                     web experiences
                   </span>{" "}
@@ -77,11 +78,9 @@ export default function Home() {
                 </h1>
 
                 <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-                  I bridge the gap between high-performance pixel-perfect
-                  engineering and search-engine dominance. Using React, Next.js,
-                  WordPress, and modern SEO architecture, I build lightning-fast
-                  web applications that rank on page one and turn visitors into
-                  loyal customers.
+                  I build pixel-perfect, high-performance websites using React,
+                  Next.js, and WordPress, combining modern SEO strategies to
+                  boost rankings, speed, and conversions.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto">
@@ -233,6 +232,7 @@ export default function Home() {
               </div>
             </div>
           </motion.section>
+
           {/* Trusted By Section */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
@@ -367,6 +367,11 @@ export default function Home() {
               </div>
             </div>
           </motion.section>
+
+          {/* Project Section */}
+
+          <ProjectSection />
+
           {/* About Section */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
@@ -771,488 +776,8 @@ export default function Home() {
               </div>
             </div>
           </motion.section>
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.5 }}
-            className="w-full max-w-7xl mx-auto px-6 lg:px-12 py-space-2xl"
-            id="projects"
-            data-project-filter={projectFilter}
-          >
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-              <div>
-                <div className="inline-flex items-center gap-2 text-primary font-label-code text-label-code uppercase tracking-wider mb-2">
-                  <span>03 / Case Studies</span>
-                </div>
-                <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-                  Selected Works &amp; Measurable Impact
-                </h2>
-              </div>
 
-              <div
-                className="flex flex-wrap items-center gap-2 bg-surface-container-low p-1.5 rounded-xl shadow-inner"
-                id="project-filters"
-              >
-                <button
-                  type="button"
-                  className={`filter-btn px-4 py-2 rounded-lg font-label-md text-label-md transition-all ${projectFilter === "all" ? "bg-primary text-on-primary font-semibold" : "text-on-surface-variant hover:text-on-surface"}`}
-                  data-filter="all"
-                  aria-pressed={projectFilter === "all"}
-                  onClick={() => setProjectFilter("all")}
-                >
-                  All Projects
-                </button>
-                <button
-                  type="button"
-                  className={`filter-btn px-4 py-2 rounded-lg font-label-md text-label-md transition-all ${projectFilter === "nextjs" ? "bg-primary text-on-primary font-semibold" : "text-on-surface-variant hover:text-on-surface"}`}
-                  data-filter="nextjs"
-                  aria-pressed={projectFilter === "nextjs"}
-                  onClick={() => setProjectFilter("nextjs")}
-                >
-                  Next.js
-                </button>
-                <button
-                  type="button"
-                  className={`filter-btn px-4 py-2 rounded-lg font-label-md text-label-md transition-all ${projectFilter === "seo" ? "bg-primary text-on-primary font-semibold" : "text-on-surface-variant hover:text-on-surface"}`}
-                  data-filter="seo"
-                  aria-pressed={projectFilter === "seo"}
-                  onClick={() => setProjectFilter("seo")}
-                >
-                  SEO Impact
-                </button>
-                <button
-                  type="button"
-                  className={`filter-btn px-4 py-2 rounded-lg font-label-md text-label-md transition-all ${projectFilter === "ecommerce" ? "bg-primary text-on-primary font-semibold" : "text-on-surface-variant hover:text-on-surface"}`}
-                  data-filter="ecommerce"
-                  aria-pressed={projectFilter === "ecommerce"}
-                  onClick={() => setProjectFilter("ecommerce")}
-                >
-                  eCommerce
-                </button>
-              </div>
-            </div>
-
-            <div className="space-y-12">
-              <div
-                className="project-card rounded-3xl bg-surface-container-low overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
-                data-category="nextjs seo"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-12">
-                  <div className="lg:col-span-6 p-8 lg:p-12 bg-surface-container-high/40 flex flex-col justify-between relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div className="flex items-center justify-between mb-8 z-10">
-                      <span className="font-label-code text-label-code text-primary uppercase font-bold tracking-wider">
-                        Enterprise B2B SaaS
-                      </span>
-                      <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-code text-xs font-semibold">
-                        <span className="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                        100 Lighthouse
-                      </div>
-                    </div>
-
-                    <div className="w-full bg-surface-container-lowest rounded-2xl p-6 shadow-2xl relative z-10 space-y-4">
-                      <div className="flex items-center justify-between pb-4">
-                        <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 rounded-full bg-error"></div>
-                          <div className="w-3 h-3 rounded-full bg-primary-container"></div>
-                          <div className="w-3 h-3 rounded-full bg-tertiary"></div>
-                        </div>
-                        <span className="font-label-code text-[11px] text-outline">
-                          analytics.apex.io/realtime
-                        </span>
-                      </div>
-                      <div className="flex items-end justify-between h-28 pt-4 gap-3">
-                        <div className="w-full bg-surface-container-high rounded-t-md h-[40%] flex items-end">
-                          <div className="w-full bg-primary/40 rounded-t-md h-full"></div>
-                        </div>
-                        <div className="w-full bg-surface-container-high rounded-t-md h-[65%] flex items-end">
-                          <div className="w-full bg-primary/60 rounded-t-md h-full"></div>
-                        </div>
-                        <div className="w-full bg-surface-container-high rounded-t-md h-[55%] flex items-end">
-                          <div className="w-full bg-primary/70 rounded-t-md h-full"></div>
-                        </div>
-                        <div className="w-full bg-surface-container-high rounded-t-md h-[90%] flex items-end">
-                          <div className="w-full bg-tertiary rounded-t-md h-full"></div>
-                        </div>
-                        <div className="w-full bg-surface-container-high rounded-t-md h-[80%] flex items-end">
-                          <div className="w-full bg-primary rounded-t-md h-full"></div>
-                        </div>
-                        <div className="w-full bg-surface-container-high rounded-t-md h-[100%] flex items-end">
-                          <div className="w-full bg-primary-container rounded-t-md h-full"></div>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center text-xs font-label-code text-on-surface-variant pt-2">
-                        <span>Organic Traffic: +180%</span>
-                        <span className="text-tertiary font-bold">
-                          +42,800 Mo. Visits
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3 mt-8">
-                      <span className="px-3 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-code text-xs">
-                        Next.js 14
-                      </span>
-                      <span className="px-3 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-code text-xs">
-                        TypeScript
-                      </span>
-                      <span className="px-3 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-code text-xs">
-                        Tailwind CSS
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-between space-y-6">
-                    <div>
-                      <h3 className="font-headline-md text-headline-md text-on-surface mb-3">
-                        SaaS Metrics Engine &amp; Marketing Portal
-                      </h3>
-                      <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
-                        Engineered from the ground up for a high-velocity
-                        analytics venture. Re-architected dynamic SSR routes,
-                        implemented automated Open Graph image generation, and
-                        purged render-blocking CSS.
-                      </p>
-
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="p-4 rounded-xl bg-surface-container-high/60">
-                          <p className="font-headline-sm text-headline-sm text-tertiary font-bold">
-                            +180%
-                          </p>
-                          <p className="font-body-sm text-body-sm text-on-surface-variant">
-                            Organic inbound signups in 90 days
-                          </p>
-                        </div>
-                        <div className="p-4 rounded-xl bg-surface-container-high/60">
-                          <p className="font-headline-sm text-headline-sm text-primary font-bold">
-                            99/100
-                          </p>
-                          <p className="font-body-sm text-body-sm text-on-surface-variant">
-                            Google Lighthouse performance audit
-                          </p>
-                        </div>
-                      </div>
-
-                      <ul className="space-y-2.5 text-on-surface-variant font-body-sm text-body-sm">
-                        <li className="flex items-start gap-2.5">
-                          <span className="material-symbols-outlined text-tertiary text-lg shrink-0 mt-0.5">
-                            check_circle
-                          </span>
-                          <span>
-                            Integrated programmatic landing pages for 120+
-                            software integration search queries.
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-2.5">
-                          <span className="material-symbols-outlined text-tertiary text-lg shrink-0 mt-0.5">
-                            check_circle
-                          </span>
-                          <span>
-                            Reduced server response time (TTFB) from 680ms to
-                            92ms using edge-caching.
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="flex items-center gap-4 pt-4">
-                      <a
-                        className="inline-flex items-center gap-2 text-primary font-label-lg text-label-lg hover:underline"
-                        href="#contact"
-                      >
-                        <span>View Full Case Study</span>
-                        <span className="material-symbols-outlined text-sm">
-                          open_in_new
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="project-card rounded-3xl bg-surface-container-low overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
-                data-category="ecommerce nextjs"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-12">
-                  <div className="lg:col-span-6 p-8 lg:p-12 bg-surface-container-high/40 flex flex-col justify-between relative overflow-hidden order-1 lg:order-2">
-                    <div className="absolute top-0 left-0 w-80 h-80 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div className="flex items-center justify-between mb-8 z-10">
-                      <span className="font-label-code text-label-code text-secondary uppercase font-bold tracking-wider">
-                        Luxury Direct-to-Consumer
-                      </span>
-                      <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary font-label-code text-xs font-semibold">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        0.9s Load Speed
-                      </div>
-                    </div>
-
-                    <div className="w-full bg-surface-container-lowest rounded-2xl p-6 shadow-2xl relative z-10 space-y-4">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                          <span className="material-symbols-outlined text-primary text-xl">
-                            shopping_bag
-                          </span>
-                          <span className="font-headline-sm text-sm font-bold text-on-surface">
-                            Veloce Luxury Gear
-                          </span>
-                        </div>
-                        <span className="font-label-code text-xs px-2.5 py-1 rounded bg-tertiary/10 text-tertiary">
-                          Cart Instant Sync
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-2 gap-3 pt-2">
-                        <div className="bg-surface-container-high/70 p-3 rounded-xl space-y-2">
-                          <div className="w-full h-16 bg-surface-container rounded-lg flex items-center justify-center">
-                            <span className="material-symbols-outlined text-outline text-2xl">
-                              watch
-                            </span>
-                          </div>
-                          <div className="h-2 bg-on-surface-variant/20 rounded w-3/4"></div>
-                          <div className="h-2 bg-primary/50 rounded w-1/2"></div>
-                        </div>
-                        <div className="bg-surface-container-high/70 p-3 rounded-xl space-y-2">
-                          <div className="w-full h-16 bg-surface-container rounded-lg flex items-center justify-center">
-                            <span className="material-symbols-outlined text-outline text-2xl">
-                              headphones
-                            </span>
-                          </div>
-                          <div className="h-2 bg-on-surface-variant/20 rounded w-4/5"></div>
-                          <div className="h-2 bg-secondary/50 rounded w-1/3"></div>
-                        </div>
-                      </div>
-                      <div className="flex items-center justify-between pt-2 border-t border-surface-container-high text-xs font-label-code">
-                        <span className="text-on-surface-variant">
-                          LCP Optimization: 0.8s
-                        </span>
-                        <span className="text-tertiary font-bold">
-                          +34% Checkout Rate
-                        </span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3 mt-8">
-                      <span className="px-3 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-code text-xs">
-                        React
-                      </span>
-                      <span className="px-3 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-code text-xs">
-                        Shopify Storefront API
-                      </span>
-                      <span className="px-3 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-code text-xs">
-                        Next.js Edge
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-between space-y-6 order-2 lg:order-1">
-                    <div>
-                      <h3 className="font-headline-md text-headline-md text-on-surface mb-3">
-                        E-Commerce Headless Storefront
-                      </h3>
-                      <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
-                        Transformed a bloated monolithic Shopify theme into an
-                        ultra-fast headless React front-end powered by Shopify
-                        GraphQL Storefront API. Designed for peak holiday
-                        traffic without speed degradation.
-                      </p>
-
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="p-4 rounded-xl bg-surface-container-high/60">
-                          <p className="font-headline-sm text-headline-sm text-tertiary font-bold">
-                            3.8s → 0.9s
-                          </p>
-                          <p className="font-body-sm text-body-sm text-on-surface-variant">
-                            Drastic 76% speed reduction
-                          </p>
-                        </div>
-                        <div className="p-4 rounded-xl bg-surface-container-high/60">
-                          <p className="font-headline-sm text-headline-sm text-secondary font-bold">
-                            +34%
-                          </p>
-                          <p className="font-body-sm text-body-sm text-on-surface-variant">
-                            Conversion boost in direct checkout
-                          </p>
-                        </div>
-                      </div>
-
-                      <ul className="space-y-2.5 text-on-surface-variant font-body-sm text-body-sm">
-                        <li className="flex items-start gap-2.5">
-                          <span className="material-symbols-outlined text-secondary text-lg shrink-0 mt-0.5">
-                            check_circle
-                          </span>
-                          <span>
-                            Instant product variant switching with zero layout
-                            cumulative shifts (0.00 CLS).
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-2.5">
-                          <span className="material-symbols-outlined text-secondary text-lg shrink-0 mt-0.5">
-                            check_circle
-                          </span>
-                          <span>
-                            Built customized Product and Organization JSON-LD
-                            markup yielding Google Rich Stars in SERPs.
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="flex items-center gap-4 pt-4">
-                      <a
-                        className="inline-flex items-center gap-2 text-secondary font-label-lg text-label-lg hover:underline"
-                        href="#contact"
-                      >
-                        <span>View Full Case Study</span>
-                        <span className="material-symbols-outlined text-sm">
-                          open_in_new
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="project-card rounded-3xl bg-surface-container-low overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
-                data-category="seo"
-              >
-                <div className="grid grid-cols-1 lg:grid-cols-12">
-                  <div className="lg:col-span-6 p-8 lg:p-12 bg-surface-container-high/40 flex flex-col justify-between relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-tertiary/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <div className="flex items-center justify-between mb-8 z-10">
-                      <span className="font-label-code text-label-code text-tertiary uppercase font-bold tracking-wider">
-                        Programmatic Content Hub
-                      </span>
-                      <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-code text-xs font-semibold">
-                        <span className="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                        450+ Ranked Keywords
-                      </div>
-                    </div>
-
-                    <div className="w-full bg-surface-container-lowest rounded-2xl p-6 shadow-2xl relative z-10 space-y-4">
-                      <div className="flex items-center justify-between pb-2">
-                        <div className="flex items-center gap-2">
-                          <span className="material-symbols-outlined text-tertiary text-xl">
-                            query_stats
-                          </span>
-                          <span className="font-headline-sm text-sm font-bold text-on-surface">
-                            Search Console Snapshot
-                          </span>
-                        </div>
-                        <span className="font-label-code text-xs text-primary font-bold">
-                          Top 3 Positions
-                        </span>
-                      </div>
-                      <div className="space-y-2.5">
-                        <div className="flex items-center justify-between text-xs p-2.5 rounded-lg bg-surface-container-high/80">
-                          <span className="text-on-surface font-body-sm">
-                            &quot;best high yield api&quot;
-                          </span>
-                          <span className="font-label-code text-tertiary font-bold">
-                            #1 Position
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between text-xs p-2.5 rounded-lg bg-surface-container-high/80">
-                          <span className="text-on-surface font-body-sm">
-                            &quot;embedded finance react sdk&quot;
-                          </span>
-                          <span className="font-label-code text-tertiary font-bold">
-                            #2 Position
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-between text-xs p-2.5 rounded-lg bg-surface-container-high/80">
-                          <span className="text-on-surface font-body-sm">
-                            &quot;automated treasury ledger&quot;
-                          </span>
-                          <span className="font-label-code text-tertiary font-bold">
-                            #2 Position
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center text-xs font-label-code text-outline pt-1">
-                        <span>Impressions: 890k/mo</span>
-                        <span className="text-primary">CTR: 8.4%</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3 mt-8">
-                      <span className="px-3 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-code text-xs">
-                        TypeScript
-                      </span>
-                      <span className="px-3 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-code text-xs">
-                        Contentful CMS
-                      </span>
-                      <span className="px-3 py-1 rounded-md bg-surface-container text-on-surface-variant font-label-code text-xs">
-                        Tailwind CSS
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-between space-y-6">
-                    <div>
-                      <h3 className="font-headline-md text-headline-md text-on-surface mb-3">
-                        FinTech Discovery Platform &amp; Knowledge Hub
-                      </h3>
-                      <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
-                        Engineered a comprehensive content network and financial
-                        calculators built on Contentful headless CMS.
-                        Constructed dynamic XML sitemaps, semantic internal
-                        linking modules, and optimized breadcrumb hierarchy.
-                      </p>
-
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="p-4 rounded-xl bg-surface-container-high/60">
-                          <p className="font-headline-sm text-headline-sm text-tertiary font-bold">
-                            450+
-                          </p>
-                          <p className="font-body-sm text-body-sm text-on-surface-variant">
-                            High-intent buyer keywords on Page 1
-                          </p>
-                        </div>
-                        <div className="p-4 rounded-xl bg-surface-container-high/60">
-                          <p className="font-headline-sm text-headline-sm text-primary font-bold">
-                            0.6s
-                          </p>
-                          <p className="font-body-sm text-body-sm text-on-surface-variant">
-                            First Contentful Paint on mobile
-                          </p>
-                        </div>
-                      </div>
-
-                      <ul className="space-y-2.5 text-on-surface-variant font-body-sm text-body-sm">
-                        <li className="flex items-start gap-2.5">
-                          <span className="material-symbols-outlined text-tertiary text-lg shrink-0 mt-0.5">
-                            check_circle
-                          </span>
-                          <span>
-                            Automated structured article schema with author
-                            verification and publisher entities.
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-2.5">
-                          <span className="material-symbols-outlined text-tertiary text-lg shrink-0 mt-0.5">
-                            check_circle
-                          </span>
-                          <span>
-                            Zero visual shift layout design achieving 0.00 CLS
-                            across all dynamic screens.
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="flex items-center gap-4 pt-4">
-                      <a
-                        className="inline-flex items-center gap-2 text-tertiary font-label-lg text-label-lg hover:underline"
-                        href="#contact"
-                      >
-                        <span>View Full Case Study</span>
-                        <span className="material-symbols-outlined text-sm">
-                          open_in_new
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.section>
-          {/* */}
+          {/* Contact */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
