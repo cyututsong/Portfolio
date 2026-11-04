@@ -77,14 +77,14 @@ export default function Home() {
                 <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
                   I bridge the gap between high-performance pixel-perfect
                   engineering and search-engine dominance. Using React, Next.js,
-                  and modern SEO architecture, I build lightning-fast web
-                  applications that rank on page one and turn visitors into
+                  WordPress, and modern SEO architecture, I build lightning-fast
+                  web applications that rank on page one and turn visitors into
                   loyal customers.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto">
                   <a
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-lg shadow-primary-container/20 hover:bg-primary hover:text-on-primary transition-all duration-300 transform hover:-translate-y-0.5"
+                    className="font-bold inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary-container text-on-primary-container text-lg font-label-lg text-label-lg shadow-lg shadow-primary-container/20 hover:bg-primary hover:text-on-primary transition-all duration-300 transform hover:-translate-y-0.5 md:text-label-2xl text-lg"
                     href="#projects"
                   >
                     <span>View Projects &amp; Impact</span>
@@ -93,7 +93,7 @@ export default function Home() {
                     </span>
                   </a>
                   <a
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-surface-container-high/70 text-on-surface font-label-lg text-label-lg hover:bg-surface-container-highest transition-all duration-300 shadow-sm hover:text-primary"
+                    className="font-bold text-lg inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-surface-container-high/70 text-on-surface font-label-lg text-label-lg hover:bg-surface-container-highest transition-all duration-300 shadow-sm hover:text-primary"
                     href="#contact"
                   >
                     <span>Discuss a Project</span>
@@ -1246,200 +1246,7 @@ export default function Home() {
               </div>
             </div>
           </motion.section>
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.5 }}
-            className="w-full max-w-7xl mx-auto px-6 lg:px-12 py-space-2xl"
-            id="testimonials"
-          >
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <div className="inline-flex items-center gap-2 text-primary font-label-code text-label-code uppercase tracking-wider mb-2">
-                <span>04 / Endorsements</span>
-              </div>
-              <h2 className="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-4">
-                What Founders &amp; Engineering Leads Say
-              </h2>
-              <p className="font-body-md text-body-md text-on-surface-variant">
-                Collaborative technical leadership that ships on deadline and
-                moves the needle where it matters most: user satisfaction and
-                organic acquisition.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="p-8 rounded-3xl bg-surface-container-low shadow-lg flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
-                <div>
-                  <div className="flex items-center gap-1 text-primary mb-6">
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                  </div>
-                  <p className="font-body-md text-body-md text-on-surface leading-relaxed mb-6 italic">
-                    &quot;Rodney is a rare unicorn in software engineering. Most
-                    front-end developers ignore SEO, and most SEOs can&apos;t
-                    code to save their lives. Rodney delivered a Next.js
-                    architecture that tripled our organic traffic in under 4
-                    months while maintaining a 99 Lighthouse score.&quot;
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 pt-6 border-t border-surface-container-high">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
-                    SK
-                  </div>
-                  <div>
-                    <h3 className="font-headline-sm text-sm font-bold text-on-surface">
-                      Stefan Kowalski
-                    </h3>
-                    <p className="font-body-sm text-xs text-on-surface-variant">
-                      VP of Engineering at FinTech Apex
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-8 rounded-3xl bg-surface-container-low shadow-lg flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
-                <div>
-                  <div className="flex items-center gap-1 text-primary mb-6">
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                  </div>
-                  <p className="font-body-md text-body-md text-on-surface leading-relaxed mb-6 italic">
-                    &quot;Our eCommerce storefront went from sluggish to
-                    virtually instantaneous. Our customers noticed immediately,
-                    and our checkout completion surged by +34%. Rodney
-                    communicated daily, adhered strictly to timeline milestones,
-                    and documented every component flawlessly.&quot;
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 pt-6 border-t border-surface-container-high">
-                  <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold">
-                    AR
-                  </div>
-                  <div>
-                    <h3 className="font-headline-sm text-sm font-bold text-on-surface">
-                      Amara Rodriguez
-                    </h3>
-                    <p className="font-body-sm text-xs text-on-surface-variant">
-                      Co-Founder, Veloce eCommerce
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-8 rounded-3xl bg-surface-container-low shadow-lg flex flex-col justify-between hover:bg-surface-container transition-all duration-300">
-                <div>
-                  <div className="flex items-center gap-1 text-primary mb-6">
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                    <span
-                      className="material-symbols-outlined text-lg"
-                      style={{ fontVariationSettings: "'FILL' 1" }}
-                    >
-                      star
-                    </span>
-                  </div>
-                  <p className="font-body-md text-body-md text-on-surface leading-relaxed mb-6 italic">
-                    &quot;Working with Rodney felt like supercharging our entire
-                    sprint velocity. He has a keen eye for clean UI aesthetics,
-                    responsive precision, and the technical depth to audit
-                    schema issues that were hurting our crawl index for years.
-                    Highest recommendation.&quot;
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 pt-6 border-t border-surface-container-high">
-                  <div className="w-12 h-12 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary font-bold">
-                    DL
-                  </div>
-                  <div>
-                    <h3 className="font-headline-sm text-sm font-bold text-on-surface">
-                      David Lin
-                    </h3>
-                    <p className="font-body-sm text-xs text-on-surface-variant">
-                      Product Lead, CloudScale Inc.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.section>
+          {/* */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
