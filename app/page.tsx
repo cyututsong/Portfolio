@@ -4,6 +4,8 @@ import { useState, type FormEvent } from "react";
 import { MotionConfig, motion } from "framer-motion";
 import { SiteFooter } from "../components/site-footer";
 import { SiteHeader } from "../components/site-header";
+import Image from "next/image";
+import myPhoto from "../public/rodney-portrait.webp";
 
 export default function Home() {
   const [projectFilter, setProjectFilter] = useState("all");
@@ -49,7 +51,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 1 }}
             className="w-full max-w-7xl mx-auto px-6 lg:px-12 py-space-xl lg:py-space-2xl"
             id="home"
           >
@@ -118,7 +120,11 @@ export default function Home() {
                         aria-hidden="true"
                         className="font-display text-[180px] leading-none font-bold text-primary/20 select-none"
                       >
-                        R
+                        <Image
+                          src={myPhoto}
+                          alt="Rodney R."
+                          className="w-full h-full object-cover"
+                        />
                       </span>
                     </div>
 
@@ -158,7 +164,7 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="font-label-code text-label-code text-tertiary font-bold">
-                        Top 1%
+                        Top 100%
                       </p>
                       <p className="font-body-sm text-[11px] leading-tight text-on-surface-variant">
                         Core Web Vitals
