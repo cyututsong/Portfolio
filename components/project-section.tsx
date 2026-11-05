@@ -9,9 +9,8 @@ import ImgNakula from "../public/images/nakula.webp";
 
 const filters = [
   { id: "all", label: "All Projects" },
-  { id: "nextjs", label: "Next.js" },
+  { id: "website", label: "Website" },
   { id: "seo", label: "SEO Impact" },
-  { id: "ecommerce", label: "eCommerce" },
 ];
 
 function ProjectDetails({
@@ -30,16 +29,6 @@ function ProjectDetails({
       transition={{ duration: 0.3 }}
       className="relative"
     >
-      <div className="mb-7 flex items-center justify-between">
-        <span className="font-label-code text-xs uppercase tracking-[0.18em] text-on-surface-variant">
-          Featured project
-        </span>
-        <span className={`font-label-code text-sm ${project.accentText}`}>
-          0{index + 1}{" "}
-          <span className="text-outline">/ 0{projects.length}</span>
-        </span>
-      </div>
-
       <p
         className={`mb-3 font-label-code text-xs uppercase tracking-[0.16em] ${project.accentText}`}
       >
@@ -86,7 +75,7 @@ function ProjectDetails({
         ))}
       </ul>
 
-      <div className="mb-8 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         {project.stack.map((item) => (
           <span
             key={item}
@@ -136,250 +125,96 @@ function BrowserFrame({
 function ProjectPreview({ project }: { project: Project }) {
   return (
     <BrowserFrame project={project}>
-      {project.preview === "analytics" && (
-        <div className="relative min-h-[440px] overflow-hidden p-5 sm:min-h-[520px] sm:p-8">
-          <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
-          <div className="relative mb-8 flex items-center justify-between">
+      <div className="relative min-h-[440px] overflow-hidden p-5 sm:min-h-[520px] sm:p-8">
+        <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+        <div className="relative mb-8 flex items-center justify-between">
+          <div>
+            <p className="font-headline-sm text-lg font-bold text-on-surface">
+              Analytic Reports
+            </p>
+            <p className="mt-1 font-body-sm text-on-surface-variant">
+              Performance overview
+            </p>
+          </div>
+          <span className="rounded-full bg-tertiary/10 px-3 py-1.5 font-label-code text-[10px] text-tertiary">
+            LAST REPORT
+          </span>
+        </div>
+
+        <div className="mb-4 rounded-xl border border-outline-variant/50 bg-surface-container/70 p-4 sm:p-5">
+          <Image src={ImgNakula} alt="Nakula website" />
+        </div>
+
+        <div className="mb-4 rounded-xl border border-outline-variant/50 bg-surface-container/70 p-4 sm:p-5">
+          <div className="mb-5 flex items-center justify-between">
             <div>
-              <p className="font-headline-sm text-lg font-bold text-on-surface">
-                Analytic Reports
+              <p className="font-label-lg text-label-lg text-on-surface">
+                Organic traffic
               </p>
-              <p className="mt-1 font-body-sm text-on-surface-variant">
-                Performance overview
+              <p className="font-label-code text-[10px] text-outline">
+                Last 30 days
               </p>
             </div>
-            <span className="rounded-full bg-tertiary/10 px-3 py-1.5 font-label-code text-[10px] text-tertiary">
-              LIVE REPORT
-            </span>
+            <span className="font-label-code text-xs text-tertiary">+180%</span>
           </div>
-
-          <div className="mb-4 rounded-xl border border-outline-variant/50 bg-surface-container/70 p-4 sm:p-5">
-            <Image src={ImgNakula} alt="Nakula website" />
-          </div>
-
-          <div className="mb-4 rounded-xl border border-outline-variant/50 bg-surface-container/70 p-4 sm:p-5">
-            <div className="mb-5 flex items-center justify-between">
-              <div>
-                <p className="font-label-lg text-label-lg text-on-surface">
-                  Organic traffic
-                </p>
-                <p className="font-label-code text-[10px] text-outline">
-                  Last 30 days
-                </p>
-              </div>
-              <span className="font-label-code text-xs text-tertiary">
-                +180%
-              </span>
-            </div>
-            <div className="flex h-36 items-end gap-2 sm:h-44 sm:gap-3">
-              {[28, 42, 34, 57, 48, 69, 61, 82, 72, 96, 78, 100].map(
-                (height, index) => (
-                  <div
-                    key={index}
-                    className="flex h-full flex-1 items-end overflow-hidden rounded-t-md bg-surface-container-high"
-                  >
-                    <div
-                      className={`w-full rounded-t-md ${
-                        index === 11
-                          ? "bg-tertiary"
-                          : index > 8
-                            ? "bg-primary"
-                            : "bg-primary/45"
-                      }`}
-                      style={{ height: `${height}%` }}
-                    />
-                  </div>
-                ),
-              )}
-            </div>
-            <div className="mt-3 flex justify-between font-label-code text-[9px] text-outline">
-              <span>JUN 01</span>
-              <span>JUN 15</span>
-              <span>JUN 30</span>
-            </div>
-          </div>
-
-          <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-            {[
-              ["42.8k", "Monthly visits"],
-              ["+180%", "Organic growth"],
-              ["99", "Lighthouse"],
-            ].map(([value, label]) => (
-              <div
-                key={label}
-                className="rounded-xl border border-outline-variant/50 bg-surface-container/80 p-3 sm:p-4"
-              >
-                <p className="font-headline-sm text-xl font-bold text-on-surface sm:text-2xl">
-                  {value}
-                </p>
-                <p className="mt-1 font-label-code text-[9px] text-outline sm:text-[10px]">
-                  {label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-4 flex items-center gap-2 rounded-xl border border-outline-variant/40 bg-surface-container/50 p-3">
-            <span className="material-symbols-outlined text-base text-primary">
-              bolt
-            </span>
-            <p className="font-body-sm text-on-surface-variant">
-              Edge-cached pages responding in{" "}
-              <span className="font-semibold text-on-surface">92ms</span>
-            </p>
-          </div>
-        </div>
-      )}
-
-      {project.preview === "store" && (
-        <div className="relative min-h-[440px] overflow-hidden p-5 sm:min-h-[520px] sm:p-8">
-          <div className="pointer-events-none absolute -left-20 -top-24 h-72 w-72 rounded-full bg-secondary/10 blur-3xl" />
-          <div className="relative mb-7 flex items-center justify-between border-b border-outline-variant/40 pb-4">
-            <p className="font-headline-sm text-lg font-bold tracking-wide text-on-surface">
-              VELOCE
-            </p>
-            <div className="flex items-center gap-4 text-outline">
-              <span className="hidden font-label-code text-[10px] sm:inline">
-                NEW ARRIVALS
-              </span>
-              <span className="material-symbols-outlined text-lg">search</span>
-              <span className="material-symbols-outlined text-lg">
-                shopping_bag
-              </span>
-            </div>
-          </div>
-          <div className="mb-5 rounded-2xl bg-gradient-to-br from-surface-container-high to-surface-container p-5 sm:p-7">
-            <p className="mb-2 font-label-code text-[10px] uppercase tracking-[0.2em] text-secondary">
-              Built for the journey
-            </p>
-            <h4 className="max-w-xs font-headline-md text-2xl font-bold leading-tight text-on-surface sm:text-3xl">
-              Precision meets
-              <br />
-              everyday adventure.
-            </h4>
-            <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-on-surface px-4 py-2 font-label-code text-[10px] text-surface">
-              EXPLORE THE COLLECTION
-              <span className="material-symbols-outlined text-xs">
-                arrow_forward
-              </span>
-            </span>
-          </div>
-          <div className="mb-3 flex items-center justify-between">
-            <p className="font-label-lg text-label-lg text-on-surface">
-              Best sellers
-            </p>
-            <span className="font-label-code text-[10px] text-outline">
-              VIEW ALL
-            </span>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            {[
-              {
-                name: "Chrono 04",
-                price: "$289",
-                icon: "watch",
-                shade: "from-secondary/20 to-surface-container",
-              },
-              {
-                name: "Studio One",
-                price: "$149",
-                icon: "headphones",
-                shade: "from-primary/20 to-surface-container",
-              },
-            ].map((item) => (
-              <div
-                key={item.name}
-                className="overflow-hidden rounded-xl border border-outline-variant/50 bg-surface-container/70"
-              >
+          <div className="flex h-36 items-end gap-2 sm:h-44 sm:gap-3">
+            {project.trafficData.map((height, index) => {
+              return (
                 <div
-                  className={`flex h-24 items-center justify-center bg-gradient-to-br ${item.shade} sm:h-32`}
+                  key={index}
+                  className="flex h-full flex-1 items-end overflow-hidden rounded-t-md bg-surface-container-high"
                 >
-                  <span className="material-symbols-outlined text-4xl text-on-surface/75">
-                    {item.icon}
-                  </span>
+                  <div
+                    className={`w-full rounded-t-md ${
+                      index === 11
+                        ? "bg-tertiary"
+                        : index > 8
+                          ? "bg-primary"
+                          : "bg-primary/45"
+                    }`}
+                    style={{ height: `${height}%` }}
+                  />
                 </div>
-                <div className="flex items-center justify-between p-3">
-                  <div>
-                    <p className="font-label-lg text-xs text-on-surface">
-                      {item.name}
-                    </p>
-                    <p className="mt-1 font-label-code text-[10px] text-outline">
-                      {item.price}
-                    </p>
-                  </div>
-                  <span className="material-symbols-outlined text-base text-outline">
-                    add
-                  </span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+          <div className="mt-3 flex justify-between font-label-code text-[9px] text-outline">
+            <span>JUN 01</span>
+            <span>JUN 15</span>
+            <span>JUN 30</span>
           </div>
         </div>
-      )}
 
-      {project.preview === "search" && (
-        <div className="relative min-h-[440px] overflow-hidden p-5 sm:min-h-[520px] sm:p-8">
-          <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-tertiary/10 blur-3xl" />
-          <div className="relative mb-7 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-xl text-tertiary">
-                account_balance
-              </span>
-              <p className="font-headline-sm text-base font-bold text-on-surface">
-                Nexus <span className="text-tertiary">Finance</span>
+        <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {[
+            ["42.8k", "Monthly visits"],
+            ["+180%", "Organic growth"],
+            ["99", "Lighthouse"],
+          ].map(([value, label]) => (
+            <div
+              key={label}
+              className="rounded-xl border border-outline-variant/50 bg-surface-container/80 p-3 sm:p-4"
+            >
+              <p className="font-headline-sm text-xl font-bold text-on-surface sm:text-2xl">
+                {value}
+              </p>
+              <p className="mt-1 font-label-code text-[9px] text-outline sm:text-[10px]">
+                {label}
               </p>
             </div>
-            <span className="rounded-lg border border-outline-variant/60 px-3 py-1.5 font-label-code text-[10px] text-on-surface-variant">
-              RESOURCES
-            </span>
-          </div>
-          <div className="mb-5 rounded-2xl border border-outline-variant/50 bg-surface-container/70 p-5 sm:p-6">
-            <p className="mb-2 font-label-code text-[10px] uppercase tracking-[0.16em] text-tertiary">
-              The knowledge hub
-            </p>
-            <h4 className="mb-4 max-w-sm font-headline-md text-2xl font-bold leading-tight text-on-surface sm:text-3xl">
-              Make your next
-              <br />
-              move a smarter one.
-            </h4>
-            <div className="flex items-center gap-2 rounded-lg border border-outline-variant/70 bg-surface-container-lowest px-3 py-2.5">
-              <span className="material-symbols-outlined text-base text-outline">
-                search
-              </span>
-              <span className="font-body-sm text-on-surface-variant">
-                Search guides, tools, and insights
-              </span>
-            </div>
-          </div>
-          <div className="mb-3 flex items-center justify-between">
-            <p className="font-label-lg text-label-lg text-on-surface">
-              Rising in search
-            </p>
-            <span className="font-label-code text-[10px] text-tertiary">
-              890K IMPRESSIONS / MO
-            </span>
-          </div>
-          <div className="space-y-2">
-            {[
-              ["best high yield api", "#1"],
-              ["embedded finance react sdk", "#2"],
-              ["automated treasury ledger", "#2"],
-            ].map(([query, position]) => (
-              <div
-                key={query}
-                className="flex items-center justify-between gap-3 rounded-xl border border-outline-variant/50 bg-surface-container/70 p-3"
-              >
-                <span className="truncate font-body-sm text-on-surface-variant">
-                  “{query}”
-                </span>
-                <span className="shrink-0 rounded-md bg-tertiary/10 px-2 py-1 font-label-code text-[10px] text-tertiary">
-                  {position}
-                </span>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
-      )}
+
+        <div className="mt-4 flex items-center gap-2 rounded-xl border border-outline-variant/40 bg-surface-container/50 p-3">
+          <span className="material-symbols-outlined text-base text-primary">
+            bolt
+          </span>
+          <p className="font-body-sm text-on-surface-variant">
+            Edge-cached pages responding in{" "}
+            <span className="font-semibold text-on-surface">92ms</span>
+          </p>
+        </div>
+      </div>
     </BrowserFrame>
   );
 }
@@ -502,20 +337,6 @@ export function ProjectSection() {
                     index={activeIndex}
                   />
                 </AnimatePresence>
-              </div>
-              <div className="relative mt-8 border-t border-outline-variant/60 pt-5">
-                <div className="mt-3 flex gap-1.5" aria-hidden="true">
-                  {visibleProjects.map((project, index) => (
-                    <span
-                      key={project.id}
-                      className={`h-1 flex-1 rounded-full transition-colors ${
-                        index <= activeIndex
-                          ? "bg-primary"
-                          : "bg-surface-container-highest"
-                      }`}
-                    />
-                  ))}
-                </div>
               </div>
             </div>
           </aside>

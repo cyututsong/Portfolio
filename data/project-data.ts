@@ -6,10 +6,11 @@ export type Project = {
   description: string;
   status: string;
   website: string;
+  trafficData: number[];
   metrics: { value: string; label: string; color: string }[];
   outcomes: string[];
   stack: string[];
-  preview: "analytics" | "store" | "search";
+  preview: "website" | "seo";
   accentText: string;
   accentGlow: string;
 };
@@ -17,13 +18,14 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "nakula",
-    categories: ["nextjs", "seo", ""],
+    categories: ["website", "seo"],
     industry: "Tourism, and property management",
     title: "Nakula",
     description:
       "Engineered from the ground up for a high-velocity analytics venture. Re-architected dynamic SSR routes, implemented automated Open Graph image generation, and purged render-blocking CSS.",
     status: "100 Lighthouse",
     website: "https://nakula.com/",
+    trafficData: [28, 42, 34, 57, 48, 69, 61, 82, 72, 96, 78, 100],
     metrics: [
       {
         value: "+180%",
@@ -41,19 +43,20 @@ export const projects: Project[] = [
       "Reduced server response time (TTFB) from 680ms to 92ms using edge-caching.",
     ],
     stack: ["Next.js 14", "TypeScript", "Tailwind CSS"],
-    preview: "analytics",
+    preview: "seo",
     accentText: "text-primary",
     accentGlow: "bg-primary/[0.06]",
   },
   {
-    id: "veloce",
-    categories: ["ecommerce", "nextjs"],
+    id: "hawthornpools",
+    categories: ["ecommerce", "website"],
     industry: "Luxury Direct-to-Consumer",
     title: "E-Commerce Headless Storefront",
     description:
       "Transformed a bloated monolithic Shopify theme into an ultra-fast headless React front-end powered by Shopify GraphQL Storefront API. Designed for peak holiday traffic without speed degradation.",
     status: "0.9s Load Speed",
     website: "https://veloce.com/collections/gear",
+    trafficData: [5, 10, 34, 20, 30, 40, 45, 58, 88, 96, 78, 100],
     metrics: [
       {
         value: "3.8s → 0.9s",
@@ -71,19 +74,20 @@ export const projects: Project[] = [
       "Built customized Product and Organization JSON-LD markup yielding Google Rich Stars in SERPs.",
     ],
     stack: ["React", "Shopify Storefront API", "Next.js Edge"],
-    preview: "store",
+    preview: "website",
     accentText: "text-secondary",
     accentGlow: "bg-secondary/[0.06]",
   },
   {
     id: "fintech",
-    categories: ["seo"],
+    categories: ["website"],
     industry: "Programmatic Content Hub",
     title: "FinTech Discovery Platform & Knowledge Hub",
     description:
       "Engineered a comprehensive content network and financial calculators built on Contentful headless CMS. Constructed dynamic XML sitemaps, semantic internal linking modules, and optimized breadcrumb hierarchy.",
     status: "450+ Ranked Keywords",
     website: "https://nexus.finance/learn",
+    trafficData: [28, 42, 34, 57, 48, 69, 61, 82, 72, 85, 78, 90],
     metrics: [
       {
         value: "450+",
@@ -101,7 +105,7 @@ export const projects: Project[] = [
       "Zero visual shift layout design achieving 0.00 CLS across all dynamic screens.",
     ],
     stack: ["TypeScript", "Contentful CMS", "Tailwind CSS"],
-    preview: "search",
+    preview: "website",
     accentText: "text-tertiary",
     accentGlow: "bg-tertiary/[0.06]",
   },

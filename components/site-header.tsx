@@ -3,7 +3,6 @@ const navigation = [
   { label: "About", id: "about" },
   { label: "Stack", id: "stack" },
   { label: "Projects", id: "projects" },
-  { label: "Testimonials", id: "testimonials" },
   { label: "Contact", id: "contact" },
 ];
 
@@ -22,9 +21,6 @@ export function SiteHeader() {
             <span className="flex flex-col">
               <span className="font-headline-sm text-headline-sm text-on-surface tracking-tight group-hover:text-primary transition-colors">
                 Rodney
-              </span>
-              <span className="font-label-code text-label-code text-outline">
-                Frontend &amp; SEO
               </span>
             </span>
           </a>
@@ -63,12 +59,6 @@ export function SiteHeader() {
           >
             Let&apos;s Talk
           </a>
-          <span
-            aria-hidden="true"
-            className="h-8 w-8 rounded-full bg-primary/10 text-primary ring-2 ring-primary/40 flex items-center justify-center font-semibold"
-          >
-            R
-          </span>
         </div>
       </div>
     </header>
